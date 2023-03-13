@@ -1,0 +1,151 @@
+class Node:
+2
+    def __init__(self, value):
+3
+        self.value = value
+4
+        self.left = None
+5
+        self.right = None
+6
+7
+class BinaryTree:
+8
+    def __init__(self):
+9
+        self.root = None
+10
+    
+11
+    def insert(self, value):
+12
+        new_node = Node(value)
+13
+        if self.root is None:
+14
+            self.root = new_node
+15
+        else:
+16
+            current = self.root
+17
+            while True:
+18
+                if value < current.value:
+19
+                    if current.left is None:
+20
+                        current.left = new_node
+21
+                        break
+22
+                    else:
+23
+                        current = current.left
+24
+                elif value > current.value:
+25
+                    if current.right is None:
+26
+                        current.right = new_node
+27
+                        break
+28
+                    else:
+29
+                        current = current.right
+30
+31
+    def bfs_traversal(self):
+32
+     tree = BinaryTree()
+33
+    tree.insert(50)
+34
+    tree.insert(20)
+35
+    tree.insert(80)
+36
+    tree.insert(10)
+37
+    tree.insert(30)
+38
+    tree.insert(70)
+39
+    tree.insert(90)
+40
+    tree.insert(5)
+41
+    tree.insert(15)
+42
+    tree.insert(25)
+43
+    tree.insert(35)
+44
+    tree.insert(60)
+45
+    tree.insert(75)
+46
+    tree.insert(95)
+47
+    tree.insert(2)
+48
+    tree.insert(7)
+49
+    tree.insert(12)
+50
+    tree.insert(18)
+51
+    tree.insert(22)
+52
+    tree.insert(28)
+53
+    tree.insert(33)
+54
+    tree.insert(40)
+55
+    tree.insert(55)
+56
+    tree.insert(65)
+57
+    tree.insert(72)
+58
+    tree.insert(77)
+59
+    tree.insert(85)
+60
+    tree.insert(92)
+61
+    tree.insert(98)
+62
+        if self.root is None:
+63
+            return []
+64
+        
+65
+        queue = [self.root]
+66
+        result = []
+67
+        
+68
+        while queue:
+69
+            node = queue.pop(0)
+70
+            result.append(node.value)
+71
+            
+72
+            if node.left:
+73
+                queue.append(node.left)
+74
+            if node.right:
+75
+                queue.append(node.right)
+76
+                
+77
+        return result
